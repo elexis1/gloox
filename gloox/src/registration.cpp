@@ -1,5 +1,5 @@
 /*
-  Copyright (c) 2005-2016 by Jakob Schröter <js@camaya.net>
+  Copyright (c) 2005-2017 by Jakob Schröter <js@camaya.net>
   This file is part of the gloox library. http://camaya.net/gloox
 
   This software is distributed under a license. The full license
@@ -378,6 +378,9 @@ namespace gloox
           break;
         case StanzaErrorNotAllowed:
           m_registrationHandler->handleRegistrationResult( iq.from(), RegistrationNotAllowed );
+          break;
+        case StanzaErrorResourceConstraint:
+          m_registrationHandler->handleRegistrationResult( iq.from(), RegistrationConstrained );
           break;
         default:
           m_registrationHandler->handleRegistrationResult( iq.from(), RegistrationUnknownError );
